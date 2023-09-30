@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Input.Manipulations;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -19,7 +21,8 @@ namespace Todo_App
     /// </summary>
     public partial class Add : Window
     {
-        public List<ToDoElement> toDos = new List<ToDoElement>();
+        private int toDoCount = 0;
+        public ToDoElement[] findToDo = new ToDoElement[150];
 
         public Add()
         {
@@ -28,35 +31,44 @@ namespace Todo_App
 
         private void TxtInputName_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
         }
-
+        
         private void BtnAddConfirm_Click(object sender, RoutedEventArgs e)
         {
-            ToDoElement task1 = new ToDoElement();
-            addToList(task1, TxtInputName.Text, TxtInputDesc.Text);
+            addElement();
 
-            TxtTempOutput.Text = "";
-            foreach (ToDoElement task in toDos)
-            {
-                TxtTempOutput.Text += (task1.name + " " +task1.description);
-            }
+            //MessageBox.Show(FindToDo(int.Parse(txtFind.Text)).name);
 
         }
 
-        public void addToList(ToDoElement ElementName, string Name, string Description)
+        private void addElement()
         {
-            ElementName.name = Name;
-            ElementName.description = Description;
-            toDos.Add(ElementName);
+            findToDo[toDoCount] = new ToDoElement();
+            findToDo[toDoCount].id = toDoCount;
+            findToDo[toDoCount].name = TxtInputName.Text;
+            findToDo[toDoCount].description = TxtInputDesc.Text;
+        }
+
+        private ToDoElement FindToDo(int ID)
+        {
+            var chosen = findToDo.First(x => x.id == ID);
+            return chosen;
+
+        }
+
+        private void txtFind_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 
     public class ToDoElement
     {
-        public int id = 0;
-        public string name = string.Empty;
-        public string description = string.Empty;
+        public int id { get; set; } = 0;
+        public string name { get; set; } = string.Empty;
+        public string description { get; set; } = string.Empty;
 
     }
 }
+    

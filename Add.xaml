@@ -11,5 +11,6 @@
         <TextBox x:Name="TxtInputName" HorizontalAlignment="Left" Margin="77,154,0,0" TextWrapping="Wrap" Text="Input Name" VerticalAlignment="Top" Width="150" TextChanged="TxtInputName_TextChanged" />
         <TextBox x:Name="TxtInputDesc" HorizontalAlignment="Left" Margin="283,154,0,0" TextWrapping="Wrap" Text="Input Description" VerticalAlignment="Top" Width="200" TextChanged="TxtInputName_TextChanged" Height="63" />
         <TextBox x:Name="TxtTempOutput" HorizontalAlignment="Left" Margin="349,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="318" Height="73"/>
+        <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="552,0,0,0" TextWrapping="Wrap" Text="Find SThing" VerticalAlignment="Center" Width="120" TextChanged="txtFind_TextChanged"/>
     </Grid>
 </Window>
