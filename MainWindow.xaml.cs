@@ -28,7 +28,9 @@ namespace Todo_App
         private void BtnAdd_Click_1(object sender, RoutedEventArgs e)
         {
             Add OpenAddWindow = new Add();
+            //MessageBox.Show(OpenAddWindow.FindToDo[0]);
             OpenAddWindow.Show();
+            
         }
     }
 }
