@@ -21,8 +21,8 @@ namespace Todo_App
     /// </summary>
     public partial class Add : Window
     {
-        private int toDoCount = 0;
-        public ToDoElement[] findToDo = new ToDoElement[150];
+        //private int toDoCount = 0;
+        public static List<ToDoElement> amountOfToDos = new List<ToDoElement>();
 
         public Add()
         {
@@ -38,21 +38,21 @@ namespace Todo_App
         {
             addElement();
 
-            //MessageBox.Show(FindToDo(int.Parse(txtFind.Text)).name);
-
         }
 
         private void addElement()
         {
-            findToDo[toDoCount] = new ToDoElement();
-            findToDo[toDoCount].id = toDoCount;
-            findToDo[toDoCount].name = TxtInputName.Text;
-            findToDo[toDoCount].description = TxtInputDesc.Text;
+            amountOfToDos.Add(new ToDoElement() {
+                id = GlobalVariables.toDoCount++,
+                name = TxtInputName.Text,
+                description = TxtInputDesc.Text
+            });
+
         }
 
         private ToDoElement FindToDo(int ID)
         {
-            var chosen = findToDo.First(x => x.id == ID);
+            var chosen = amountOfToDos.First(x => x.id == ID);
             return chosen;
 
         }

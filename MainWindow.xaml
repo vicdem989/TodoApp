@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Todo_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="LightSlateGray">
     <Grid>
-        <Button x:Name="BtnAdd" Content="Create new task" HorizontalAlignment="Left" Margin="372,197,0,0" VerticalAlignment="Top" Click="BtnAdd_Click_1"/>
+        <Button x:Name="BtnAdd" Content="Create new task" HorizontalAlignment="Left" Margin="588,125,0,0" VerticalAlignment="Top" Click="BtnAdd_Click_1"/>
+        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="80,96,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="390" Height="202"/>
+        <Button x:Name="btnUpdate" Content="Update List" HorizontalAlignment="Left" Margin="612,163,0,0" VerticalAlignment="Top" Click="btnUpdate_Click"/>
+        <ListView Margin="274,197,168,73" Name="displayToDo"></ListView>
     </Grid>
 </Window>

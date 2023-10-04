@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -23,14 +24,34 @@ namespace Todo_App
         public MainWindow()
         {
             InitializeComponent();
+            displayToDo.ItemsSource = Add.amountOfToDos;
         }
 
         private void BtnAdd_Click_1(object sender, RoutedEventArgs e)
         {
             Add OpenAddWindow = new Add();
-            //MessageBox.Show(OpenAddWindow.FindToDo[0]);
             OpenAddWindow.Show();
             
+
+
+        }
+
+        public void UpdateList()
+        {
+            txtOutput.Text = "";
+            if (Add.amountOfToDos.Count > 0)
+            {
+                for (int i = 0; i < Add.amountOfToDos.Count; i++)
+                {
+                    txtOutput.Text += Add.amountOfToDos[i].id.ToString() + " - " + Add.amountOfToDos[i].name + " - " + Add.amountOfToDos[i].description + "\n";
+                }
+            }
+            displayToDo.ItemsSource = Add.amountOfToDos;
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateList();
         }
     }
 }
